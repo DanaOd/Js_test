@@ -7,6 +7,20 @@ console.log("Задача 2.3");
 // Напиши функцию findLongestWord(string = ""), которая принимает параметром произвольную строку
 // (в строке будут только слова и пробелы) и возвращает самое длинное слово в этой строке.
 
+// От Миши!
+// function findTheLongestWord(string) {
+//   const words = string.split(" ");
+//   let word = "";
+
+//   words.forEach(function (item) {
+//     if (item.length > word.length) {
+//       word = item;
+//     }
+//   });
+
+//   return word;
+// }
+
 function findLongestWord(string = "") {
   const stringArr = string.split(" ");
   console.log(stringArr);
@@ -29,7 +43,7 @@ function findLongestWord(string = "") {
     console.log(element);
     if (bigWord.length < element.length) {
       console.log(element.length);
-      bigWord === element;
+      bigWord = element;
       console.log(`${bigWord}`);
       continue;
     }
