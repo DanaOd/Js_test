@@ -11,6 +11,23 @@ console.log("Задача 2.5");
 //   если запрещенных слов нет функция возвращает false.
 // Слова в строке могут быть в произвольном регистре.
 
+function checkForSpam(string) {
+  const words = string.split(" ");
+
+  const forbidWord1 = "spam";
+  const forbidWord2 = "sale";
+
+  for (let word of words) {
+    if (
+      word.toLowerCase() === forbidWord1 ||
+      word.toLowerCase() === forbidWord2
+    ) {
+      return true;
+    }
+  }
+  return false;
+}
+
 // function checkForSpam(str) {
 //   const words = str.split(" ");
 //   for (const word of words) {
@@ -29,23 +46,24 @@ console.log("Задача 2.5");
 //   return false;
 // }
 
-function checkForSpam(str) {
-  const words = str.split(" ");
-  let normalWords = [];
-  for (const word of words) {
-    normalWords.push(word.toLowerCase());
-    console.log(normalWords);
-  }
+// function checkForSpam(str) {
+//   const words = str.split(" ");
+//   let normalWords = [];
 
-  const forbidWord1 = "spam";
-  const forbidWord2 = "sale";
+//   for (const word of words) {
+//     normalWords.push(word.toLowerCase());
+//     console.log(normalWords);
+//   }
 
-  // let normalStr = words.toLowerCase();
-  if (normalWords.includes(forbidWord1) || normalWords.includes(forbidWord2)) {
-    return true;
-  }
-  return false;
-}
+//   const forbidWord1 = "spam";
+//   const forbidWord2 = "sale";
+
+//   // let normalStr = words.toLowerCase();
+//   if (normalWords.includes(forbidWord1) || normalWords.includes(forbidWord2)) {
+//     return true;
+//   }
+//   return false;
+// }
 
 // 1. разбиваем строку на слова
 // 2. инклудс
