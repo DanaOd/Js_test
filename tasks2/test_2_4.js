@@ -14,11 +14,11 @@ function formatString(string = " ", maxLength = 40) {
   if (string.length <= maxLength) {
     return string;
   }
-  let cutString = string.splice(maxLength);
-  return cutString.concat("...");
+  let cutString = string.split("").splice(0, maxLength);
+  return cutString.join("").concat("...");
 }
 
-// console.log(formatString("Curabitur ligula sapien, tincidunt non."));
+console.log(formatString("Curabitur ligula sapien, tincidunt non."));
 // 'Curabitur ligula sapien, tincidunt non.'
 
 console.log(formatString("Vestibulum facilisis, purus nec pulvinar iaculis."));

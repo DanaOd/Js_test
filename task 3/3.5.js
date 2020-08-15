@@ -1,37 +1,63 @@
 "use strict";
 
-console.log("Задача 3.4");
+console.log("Задача 3.5");
 
-// Задача 3 - 4
+// Задача 3 - 5
 
-// Напиши функцию countTotalSalary(employees) принимающую объект зарплат.
-// Функция считает общую сумму зарплаты работников и возвращает ее.
-// Каждое поле объекта, передаваемого в функцию, имеет вид "имя": "зарплата".
+// Оператор in и метод push
+// Напиши функцию getAllPropValues(arr, prop), которая получает массив объектов и имя свойства.
+// Функция возвращает массив значений определенного свойства prop из каждого объекта в массиве.
+// Используй метод push для добавления значения в массив и оператор in для проверки наличия свойства в объекте.
 
-const countTotalSalary = (employees) => {
-  let totalSalary = 0;
-  const salaryList = Object.values(employees);
-  for (const salary of salaryList) {
-    console.log(salary);
-    totalSalary += salary;
+const getAllPropValues = (arr, prop) => {
+  let propArray = [];
+  // for (const obj in arr) {
+  //   if (obj[0] === prop) {
+  //     propArray.push(obj[1]);
+  //     console.log(propArray, obj[1]);
+  //   }
+  // }
+
+  // for (const object of arr) {
+  //   let keys = Object.keys(object);
+  //   // console.log(object);
+
+  //   for (const key of keys) {
+  //     // console.log(key);
+  //     if (key === prop) {
+  //       propArray.push(object[key]);
+  //       console.log(propArray);
+  //     }
+  //   }
+  // }
+
+  for (const object of arr) {
+    for (const el in object) {
+      if (el === prop) {
+        propArray.push(object[el]);
+      }
+    }
   }
 
-  return totalSalary;
+  return propArray;
 };
 
 // Объекты и ожидаемый результат
-const developers = {
-  mango: 300,
-  poly: 250,
-  alfred: 450,
-};
-console.log(countTotalSalary(developers));
-// 1000
+const products = [
+  { name: "Радар", price: 1300, quantity: 4 },
+  { name: "Радар", price: 1280, quantity: 2 },
+  { name: "Радар", price: 1320, quantity: 1 },
+  { name: "Сканер", price: 2700, quantity: 1 },
+  { name: "Сканер", price: 2500, quantity: 3 },
+  { name: "Дроид", price: 400, quantity: 7 },
+  { name: "Захват", price: 1200, quantity: 2 },
+];
 
-const supports = {
-  kiwi: 200,
-  lux: 150,
-  chelsy: 150,
-};
-console.log(countTotalSalary(supports));
-// 500
+console.log(getAllPropValues(products, "name"));
+// ['Радар', 'Радар', 'Радар', 'Сканер', 'Сканер', 'Дроид', 'Захват']
+
+console.log(getAllPropValues(products, "quantity"));
+// [4, 2, 1, 1, 3, 7, 2]
+
+console.log(getAllPropValues(products, "category"));
+//  []
